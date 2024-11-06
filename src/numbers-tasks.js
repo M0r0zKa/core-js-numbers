@@ -50,7 +50,10 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
+  if ((value1 + value2) / 2 !== 0) {
+    return value1 / 2 + value2 / 2;
+  }
+  return 0;
 }
 
 /**
@@ -203,8 +206,8 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  return Boolean(n % 2);
 }
 
 /**
