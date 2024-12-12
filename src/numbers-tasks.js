@@ -115,8 +115,14 @@ function getLinearEquationRoot(a, b) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const dotProduct = x1 * x2 + y1 * y2;
+  const magnitude1 = Math.sqrt(x1 * x1 + y1 * y1);
+  const magnitude2 = Math.sqrt(x2 * x2 + y2 * y2);
+  if (magnitude1 === 0 || magnitude2 === 0) return 0;
+  const cosineTheta = dotProduct / (magnitude1 * magnitude2);
+  const adjustedCosineTheta = Math.max(-1, Math.min(1, cosineTheta));
+  return Math.acos(adjustedCosineTheta);
 }
 
 /**
